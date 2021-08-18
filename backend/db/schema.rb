@@ -9,7 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
+#maybe add traget volume for workout class for some implementations
 ActiveRecord::Schema.define(version: 2021_08_16_193803) do
 
   create_table "exercise_sets", force: :cascade do |t|
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_193803) do
 
   create_table "workouts", force: :cascade do |t|
     t.string "title"
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
