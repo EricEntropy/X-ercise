@@ -8,7 +8,7 @@ class Exercise{
         this.workout_id = workout_id;
     }
 
-    renderExercise(){
+    renderExerciseName(){
         const li = document.createElement('li');
         const deleteButton = document.createElement('button'); 
 
@@ -24,4 +24,14 @@ class Exercise{
         li.appendChild(deleteButton);
         return li;
     };
+
+    renderExerciseInfo(){
+        const setData = document.createElement('div');
+        setData.innerHTML = `
+        <p>Weight: ${this.weight}</p>
+        <p>Repetitions: ${this.reps}</p>
+        <p>Muscle Group: ${this.muscle_group}</p>
+        `;
+        return setData;
+    }
 }
