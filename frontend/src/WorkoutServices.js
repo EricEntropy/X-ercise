@@ -9,7 +9,8 @@ class WorkoutSerivices{
         .then(workouts => {
             console.log(workouts)
             workouts.forEach(workout => {
-                const newWorkout = new Workout(workout)
+                const newWorkout = new Workout(
+                    workout.id, workout.title, workout.exercise_sets)
                 newWorkout.renderWorkout();
             })
         });
