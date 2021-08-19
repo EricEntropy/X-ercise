@@ -3,7 +3,7 @@ class ExerciseServices{
         this.rootURL = rootURL;
     }
 
-    getExercise(){
+    getExercises(){
         fetch(this.rootURL)
         .then(resp => resp.json())
         .then(exercises => {
