@@ -35,6 +35,9 @@ class WorkoutServices{
         fetch(this.rootURL, configuration)
         .then(resp => resp.json())
         .then(workout => {
+             workout = new Workout(
+                workout.id, workout.title, workout.exercise_sets)
+            workout.renderWorkout();
             workoutForm.reset();
         });
         console.log(workout);
