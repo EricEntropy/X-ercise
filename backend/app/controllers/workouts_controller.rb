@@ -10,7 +10,7 @@ class WorkoutsController < ApplicationController
         if workout.save
             render json: workout
         else 
-            render json: {error: "Could not create Set."}
+            render json: {error: "Could not create workout."}
         end 
     end 
 
@@ -22,7 +22,7 @@ class WorkoutsController < ApplicationController
     def destroy
         workout = Workout.find(params[:id])
         workout.destroy
-        render json: {message: "Successfully deleted Set"}
+        render json: {message: "Successfully deleted workout"}
     end 
 
     private 
