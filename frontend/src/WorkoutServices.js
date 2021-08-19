@@ -1,4 +1,4 @@
-class WorkoutSerivices{ 
+class WorkoutServices{ 
     constructor(rootURL){
         this.rootURL = rootURL;
     }

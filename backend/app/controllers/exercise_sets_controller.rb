@@ -12,7 +12,7 @@ class ExerciseSetsController < ApplicationController
 
     def create 
         exercise_set = ExerciseSet.create(exercise_params)
-        if exercise_set 
+        if exercise_set.save
             render json: exercise_set
         else 
             render json: {error: "Could not create Set."}
