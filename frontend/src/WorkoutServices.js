@@ -17,9 +17,11 @@ class WorkoutServices{
     };
 
     postWorkout(){
+        const workoutForm = document.getElementById('workout-form');
+        const titleInput = document.getElementById('workout-title');
 
         const workoutData = {
-            
+            title: titleInput.value
         }
         const configuration = {
             method: 'POST', 
@@ -27,7 +29,14 @@ class WorkoutServices{
                 'Content-Type': "application/json",
                 'Accept': "application/json"
             },
-            body: JSON.stringify()
+            body: JSON.stringify(workoutData)
         }
-    }
+
+        fetch(this.rootURL, configuration)
+        .then(resp => resp.json())
+        .then(workout => {
+            workout.renderWorkout();
+            workoutForm.reset();
+        })
+    };
 }
