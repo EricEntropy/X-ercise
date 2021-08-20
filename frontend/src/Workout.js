@@ -10,6 +10,7 @@ class Workout{
         const workoutCard = document.createElement('div');
 
         workoutCard.classList.add('workout-card');
+        workoutCard.id = this.id;
 
         const workoutInfo = this.renderWorkoutTitle();
         const sets = this.renderWorkoutSets();
@@ -18,28 +19,21 @@ class Workout{
         workoutCard.appendChild(sets);
         workoutList.appendChild(workoutCard);
 
-        const button = workoutCard.querySelector('button')
-        button.addEventListener('click', (e) =>{
-            e.preventDefault();
-            e.stopPropagation();
-            switch(button.id){
-                case 'delete-btn':
+        const buttons = workoutCard.querySelectorAll('button')
+        buttons.forEach(button => {
+            if(button.id === 'delete-btn'){
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
                     console.log(this, "DELETE clicked");
-                    break;
-                case 'create-btn':
+                    workoutAPI.deleteWorkout(this.id);
+                    workoutCard.remove();
+                })
+            } else if(button.id === 'create-btn'){
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
                     console.log(this, "NEW SET clicked");
-                    break;
-                default: 
-                    console.log(this, "Nothing");
-            };
-
-            // if(button.innerText == 'Delete' && button.id == 'delete-btn'){
-            //     console.log(this, "DELETE clicked");
-            //     // workoutAPI.deleteWorkout(this.id);
-            //     // workoutCard.remove();
-            // } else if(button.id == 'create-btn'){
-            //     console.log(this, "NEW SET clicked");
-            // };
+                })
+            }
         });
     };
 
