@@ -9,10 +9,10 @@ class Exercise{
     }
 
     renderExerciseName(){
-        const li = document.createElement('li');
+        const p = document.createElement('p');
         const deleteButton = document.createElement('button'); 
 
-        li.innerText = this.name;
+        p.innerText = this.name;
 
         deleteButton.classList.add('delete-btn');
         deleteButton.innerText = 'X';
@@ -21,8 +21,8 @@ class Exercise{
             console.log(this, "clicked");
         });
 
-        li.appendChild(deleteButton);
-        return li;
+        p.appendChild(deleteButton);
+        return p;
     };
 
     renderExerciseInfo(){

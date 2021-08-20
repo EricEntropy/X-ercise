@@ -12,7 +12,7 @@ class Workout{
         workoutCard.classList.add('workout-card');
         workoutCard.id = this.title;
 
-        const workoutInfo = this.renderWorkoutTitle();
+        const workoutInfo = this.renderWorkoutCard();
         const sets = this.renderWorkoutSets();
 
         workoutCard.appendChild(workoutInfo);
@@ -41,7 +41,7 @@ class Workout{
         });
     };
 
-    renderWorkoutTitle(){
+    renderWorkoutCard(){
         const workoutData = document.createElement('div');
         const deleteButton = document.createElement('button'); 
         const newExerciseButton = document.createElement('button'); 
@@ -67,7 +67,7 @@ class Workout{
     };
 
     renderWorkoutSets(){
-        const workoutUl = document.createElement('ul');
+        const workoutUl = document.createElement('p');
         workoutUl.classList.add('exercises');
 
         this.exercise_sets.forEach(set => {
