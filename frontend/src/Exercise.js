@@ -15,7 +15,7 @@ class Exercise{
         li.innerText = this.name;
 
         deleteButton.classList.add('delete-btn');
-        deleteButton.innerText = 'delete';
+        deleteButton.innerText = 'X';
 
         deleteButton.addEventListener('click', () =>{
             console.log(this, "clicked");
@@ -33,5 +33,26 @@ class Exercise{
         <p>Muscle Group: ${this.muscle_group}</p>
         `;
         return setData;
-    }
+    };
+
+    renderNewExerciseForm(){
+        const newForm = document.createElement('div');
+        newForm.classList.add('edit-form');
+
+        newForm.innerHTML = `
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"/>
+        <br>
+        <label for="weight">Weight:</label>
+        <input type="text" name="weight" id="weight"/>
+        <br>
+        <label for="reps">Reps:</label>
+        <input type="text" name="reps" id="reps"/>
+        <br>
+        <label for="muscle_group">Muscle Groupp:</label>
+        <input type="text" name="muscle_group" id="muscle_group"/>
+        `;
+
+        return newForm;
+    };
 }

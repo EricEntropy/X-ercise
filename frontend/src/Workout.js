@@ -34,9 +34,8 @@ class Workout{
         const deleteButton = document.createElement('button'); 
 
         deleteButton.classList.add('delete-btn');
-        deleteButton.innerText = 'X';
-        
-
+        deleteButton.innerText = 'DELETE';
+    
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
         `;
