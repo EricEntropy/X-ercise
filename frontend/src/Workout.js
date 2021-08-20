@@ -10,7 +10,7 @@ class Workout{
         const workoutCard = document.createElement('div');
 
         workoutCard.classList.add('workout-card');
-        workoutCard.id = this.id;
+        workoutCard.id = this.title;
 
         const workoutInfo = this.renderWorkoutTitle();
         const sets = this.renderWorkoutSets();
@@ -18,15 +18,19 @@ class Workout{
         workoutCard.appendChild(workoutInfo);
         workoutCard.appendChild(sets);
         workoutList.appendChild(workoutCard);
+        this.renderButtonClick();
+    };
 
-        const buttons = workoutCard.querySelectorAll('button')
+    renderButtonClick(){
+        const containerCard = document.getElementById(`${this.title}`);
+        const buttons = containerCard.querySelectorAll('button')
         buttons.forEach(button => {
             if(button.id === 'delete-btn'){
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
                     console.log(this, "DELETE clicked");
                     workoutAPI.deleteWorkout(this.id);
-                    workoutCard.remove();
+                    containerCard.remove();
                 })
             } else if(button.id === 'create-btn'){
                 button.addEventListener('click', (e) => {
