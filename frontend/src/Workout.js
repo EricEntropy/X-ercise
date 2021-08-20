@@ -19,20 +19,28 @@ class Workout{
         workoutList.appendChild(workoutCard);
 
         const button = workoutCard.querySelector('button')
-        if(button.id === 'delete-btn'){
-            button.addEventListener('click', (e) =>{
-                e.preventDefault();
-                console.log(this, "DELETE clicked");
-                // workoutAPI.deleteWorkout(this.id);
-                // workoutCard.remove();
-            });
-        } else if(button.id === 'create-btn'){
-            button.addEventListener('click', (e) =>{
-                e.preventDefault();
-                console.log(this, "NEW SET clicked");
-            });
-        };
-        
+        button.addEventListener('click', (e) =>{
+            e.preventDefault();
+            e.stopPropagation();
+            switch(button.id){
+                case 'delete-btn':
+                    console.log(this, "DELETE clicked");
+                    break;
+                case 'create-btn':
+                    console.log(this, "NEW SET clicked");
+                    break;
+                default: 
+                    console.log(this, "Nothing");
+            };
+
+            // if(button.innerText == 'Delete' && button.id == 'delete-btn'){
+            //     console.log(this, "DELETE clicked");
+            //     // workoutAPI.deleteWorkout(this.id);
+            //     // workoutCard.remove();
+            // } else if(button.id == 'create-btn'){
+            //     console.log(this, "NEW SET clicked");
+            // };
+        });
     };
 
     renderWorkoutTitle(){
@@ -41,10 +49,12 @@ class Workout{
         const newExerciseButton = document.createElement('button'); 
 
         deleteButton.id = 'delete-btn';
+        deleteButton.type = 'button';
         deleteButton.classList.add('delete-btn');
         deleteButton.innerText = 'Delete';
 
         newExerciseButton.id = 'create-btn';
+        newExerciseButton.type = 'button';
         newExerciseButton.classList.add('create-btn');
         newExerciseButton.innerText = 'New Set';
     
@@ -56,7 +66,7 @@ class Workout{
         workoutData.append(deleteButton);
 
         return workoutData;
-    }
+    };
 
     renderWorkoutSets(){
         const workoutUl = document.createElement('ul');
