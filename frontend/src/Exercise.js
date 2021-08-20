@@ -15,7 +15,7 @@ class Exercise{
         li.innerText = this.name;
 
         deleteButton.classList.add('delete-btn');
-        deleteButton.innerText = 'X';
+        deleteButton.innerText = 'delete';
 
         deleteButton.addEventListener('click', () =>{
             console.log(this, "clicked");

@@ -10,7 +10,7 @@ class Workout{
         const workoutCard = document.createElement('div');
         workoutCard.classList.add('workout-card');
 
-        const workoutInfo = this.renderWorkoutInfo();
+        const workoutInfo = this.renderWorkoutTitle();
         const sets = this.renderWorkoutSets();
 
         workoutCard.appendChild(workoutInfo);
@@ -19,11 +19,21 @@ class Workout{
         workoutList.appendChild(workoutCard);
     };
 
-    renderWorkoutInfo(){
+    renderWorkoutTitle(){
         const workoutData = document.createElement('div');
+        const deleteButton = document.createElement('button'); 
+        deleteButton.classList.add('delete-btn');
+        deleteButton.innerText = 'X';
+        deleteButton.addEventListener('click', () =>{
+            console.log(this, "clicked");
+            
+        });
+
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
         `;
+
+        workoutData.appendChild(deleteButton);
         return workoutData;
     }
 
