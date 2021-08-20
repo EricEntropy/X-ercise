@@ -8,6 +8,7 @@ class Workout{
     renderWorkout(){
         const workoutList = document.getElementById("workout-list");
         const workoutCard = document.createElement('div');
+
         workoutCard.classList.add('workout-card');
 
         const workoutInfo = this.renderWorkoutTitle();
@@ -17,19 +18,24 @@ class Workout{
         workoutCard.appendChild(sets);
 
         workoutList.appendChild(workoutCard);
+
+        const deleteButton = workoutCard.querySelector('button')
+
+        deleteButton.addEventListener('click', (e) =>{
+            e.preventDefault();
+            console.log(this, "clicked");
+            workoutAPI.deleteWorkout(this.id);
+            workoutCard.remove();
+        });
     };
 
     renderWorkoutTitle(){
         const workoutData = document.createElement('div');
         const deleteButton = document.createElement('button'); 
+
         deleteButton.classList.add('delete-btn');
         deleteButton.innerText = 'X';
-        deleteButton.addEventListener('click', (e) =>{
-            e.preventDefault();
-            console.log(this, "clicked");
-            workoutAPI.deleteWorkout(this.id);
-            workoutData.remove();
-        });
+        
 
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
