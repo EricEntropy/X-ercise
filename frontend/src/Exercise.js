@@ -51,6 +51,9 @@ class Exercise{
         <br>
         <label for="muscle_group">Muscle Groupp:</label>
         <input type="text" name="muscle_group" id="muscle_group"/>
+        <p>
+            <button type="submit">Create Set</button>
+        </p>
         `;
 
         return newForm;

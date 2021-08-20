@@ -16,31 +16,45 @@ class Workout{
 
         workoutCard.appendChild(workoutInfo);
         workoutCard.appendChild(sets);
-
         workoutList.appendChild(workoutCard);
 
-        const deleteButton = workoutCard.querySelector('button')
-
-        deleteButton.addEventListener('click', (e) =>{
-            e.preventDefault();
-            console.log(this, "clicked");
-            workoutAPI.deleteWorkout(this.id);
-            workoutCard.remove();
-        });
+        const button = workoutCard.querySelector('button')
+        if(button.id === 'delete-btn'){
+            button.addEventListener('click', (e) =>{
+                e.preventDefault();
+                console.log(this, "DELETE clicked");
+                // workoutAPI.deleteWorkout(this.id);
+                // workoutCard.remove();
+            });
+        } else if(button.id === 'create-btn'){
+            button.addEventListener('click', (e) =>{
+                e.preventDefault();
+                console.log(this, "NEW SET clicked");
+            });
+        };
+        
     };
 
     renderWorkoutTitle(){
         const workoutData = document.createElement('div');
         const deleteButton = document.createElement('button'); 
+        const newExerciseButton = document.createElement('button'); 
 
+        deleteButton.id = 'delete-btn';
         deleteButton.classList.add('delete-btn');
-        deleteButton.innerText = 'DELETE';
+        deleteButton.innerText = 'Delete';
+
+        newExerciseButton.id = 'create-btn';
+        newExerciseButton.classList.add('create-btn');
+        newExerciseButton.innerText = 'New Set';
     
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
         `;
 
-        workoutData.appendChild(deleteButton);
+        workoutData.append(newExerciseButton);
+        workoutData.append(deleteButton);
+
         return workoutData;
     }
 
