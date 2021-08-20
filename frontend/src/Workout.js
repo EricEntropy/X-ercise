@@ -24,9 +24,11 @@ class Workout{
         const deleteButton = document.createElement('button'); 
         deleteButton.classList.add('delete-btn');
         deleteButton.innerText = 'X';
-        deleteButton.addEventListener('click', () =>{
+        deleteButton.addEventListener('click', (e) =>{
+            e.preventDefault();
             console.log(this, "clicked");
-            
+            workoutAPI.deleteWorkout(this.id);
+            workoutData.remove();
         });
 
         workoutData.innerHTML = `

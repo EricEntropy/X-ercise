@@ -42,4 +42,17 @@ class WorkoutServices{
         });
         console.log(workout);
     };
+
+    deleteWorkout(id){
+
+        const configuration = {
+            method: 'DELETE',
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            }
+        };
+
+        fetch(`${this.rootURL}/${id}`, configuration);
+    }
 }
