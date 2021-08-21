@@ -36,6 +36,9 @@ class Workout{
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
                     console.log(this, "NEW SET clicked");
+                    const newSet = new Exercise();
+                    const newForm = newSet.renderNewExerciseForm();
+                    containerCard.appendChild(newForm);
                 })
             }
         });

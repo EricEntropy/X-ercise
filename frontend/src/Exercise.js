@@ -40,6 +40,15 @@ class Exercise{
         newForm.classList.add('edit-form');
 
         newForm.innerHTML = `
+        <style>
+        label {
+            width: 120px;
+            display: inline-block;
+            text-align: right;
+        }
+        </style>
+        New Set
+        <br>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"/>
         <br>
@@ -49,11 +58,12 @@ class Exercise{
         <label for="reps">Reps:</label>
         <input type="text" name="reps" id="reps"/>
         <br>
-        <label for="muscle_group">Muscle Groupp:</label>
+        <label for="muscle_group">Muscle Group:</label>
         <input type="text" name="muscle_group" id="muscle_group"/>
         <p>
             <button type="submit">Create Set</button>
         </p>
+       
         `;
 
         return newForm;
