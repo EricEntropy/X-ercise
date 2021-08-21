@@ -24,6 +24,8 @@ class Workout{
     renderButtonClick(){
         const containerCard = document.getElementById(`${this.title}`);
         const buttons = containerCard.querySelectorAll('button')
+        console.log(buttons);
+
         buttons.forEach(button => {
             if(button.id === 'delete-btn'){
                 button.addEventListener('click', (e) => {
@@ -39,7 +41,12 @@ class Workout{
                     const newSet = new Exercise();
                     const newForm = newSet.renderNewExerciseForm();
                     containerCard.appendChild(newForm);
-                })
+                    const createBtn = newForm.querySelector('button')
+                    createBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        console.log(this, "CREATE SET clicked");
+                    });
+                });
             }
         });
     };

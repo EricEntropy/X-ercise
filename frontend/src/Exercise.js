@@ -47,7 +47,7 @@ class Exercise{
             text-align: right;
         }
         </style>
-        New Set
+        <b>New Set</b>
         <br>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"/>
@@ -61,7 +61,7 @@ class Exercise{
         <label for="muscle_group">Muscle Group:</label>
         <input type="text" name="muscle_group" id="muscle_group"/>
         <p>
-            <button type="submit">Create Set</button>
+            <button type="submit" id="create-set">Create Set</button>
         </p>
        
         `;
