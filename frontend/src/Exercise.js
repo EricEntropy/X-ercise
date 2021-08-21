@@ -63,9 +63,17 @@ class Exercise{
         <p>
             <button type="submit" id="create-set">Create Set</button>
         </p>
-       
         `;
-
         return newForm;
     };
+
+    renderNewSet(newSet, containerCard){
+        const newForm = newSet.renderNewExerciseForm();
+        containerCard.appendChild(newForm);
+        const createBtn = newForm.querySelector('button')
+        createBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(this, "CREATE SET clicked");
+        });
+    }
 }

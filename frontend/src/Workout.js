@@ -39,13 +39,7 @@ class Workout{
                     e.preventDefault();
                     console.log(this, "NEW SET clicked");
                     const newSet = new Exercise();
-                    const newForm = newSet.renderNewExerciseForm();
-                    containerCard.appendChild(newForm);
-                    const createBtn = newForm.querySelector('button')
-                    createBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        console.log(this, "CREATE SET clicked");
-                    });
+                    newSet.renderNewSet(newSet, containerCard);
                 });
             }
         });
