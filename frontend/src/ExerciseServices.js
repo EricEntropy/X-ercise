@@ -16,7 +16,7 @@ class ExerciseServices{
                     exercise.reps,
                     exercise.muscle_group,
                     exercise.workout_id)
-                newExercise.renderExerciseName();
+                newExercise.renderExerciseCard();
             })
         });
     }
@@ -32,6 +32,17 @@ class ExerciseServices{
         };
 
         fetch(this.rootURL, configuration)
+    }
+
+    deleteSet(id){
+        const configuration = {
+            method: 'DELETE',
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            }
+        };
+        fetch(`${this.rootURL}/${id}`, configuration);
     }
 
 }

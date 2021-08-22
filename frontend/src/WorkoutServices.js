@@ -22,7 +22,7 @@ class WorkoutServices{
             const workout = {
                 title: titleInput.value
             };
-            
+
         const configuration = {
             method: 'POST', 
             headers: {
@@ -44,7 +44,6 @@ class WorkoutServices{
     };
 
     deleteWorkout(id){
-
         const configuration = {
             method: 'DELETE',
             headers: {

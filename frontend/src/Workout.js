@@ -83,10 +83,10 @@ class Workout{
                 set.reps,
                 set.muscle_group,
                 set.workout_id);
-            const li = newSet.renderExerciseName();
+            const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();
+            li.appendChild(ul);
             workoutUl.appendChild(li);
-            workoutUl.appendChild(ul);
         });
         return workoutUl;
     }

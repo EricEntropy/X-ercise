@@ -8,9 +8,12 @@ class Exercise{
         this.workout_id = workout_id;
     }
 
-    renderExerciseName(){
+    renderExerciseCard(){
+        const exerciseCard = document.createElement('div');
         const p = document.createElement('p');
         const deleteButton = document.createElement('button'); 
+
+        exerciseCard.classList.add('exercise-card');
 
         p.innerText = this.name;
 
@@ -19,10 +22,13 @@ class Exercise{
 
         deleteButton.addEventListener('click', () =>{
             console.log(this, "clicked");
+            exerciseAPI.deleteSet(this.id);
+            exerciseCard.remove();
         });
 
         p.appendChild(deleteButton);
-        return p;
+        exerciseCard.appendChild(p);
+        return exerciseCard;
     };
 
     renderExerciseInfo(){
@@ -79,7 +85,7 @@ class Exercise{
             console.log(newSet);
             exerciseAPI.postSet(newSet);
             newForm.remove();
-            const li = newSet.renderExerciseName();
+            const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();
             containerCard.appendChild(li);
             containerCard.appendChild(ul);
