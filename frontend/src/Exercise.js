@@ -75,37 +75,43 @@ class Exercise{
 
     renderNewSet(newSet, containerCard){
         const newForm = newSet.renderNewExerciseForm();
-        const exerciseCard = document.getElementById('exercise-card');
         const createBtn = newForm.querySelector('button')
 
         containerCard.append(newForm);
         createBtn.addEventListener('click', (e) => {
             e.preventDefault();
             console.log(this, "CREATE SET clicked");
-            this.populateSetfromInput(newSet, containerCard)
-            console.log(newSet);
-            exerciseAPI.postSet(newSet);
-            newForm.remove();
-            const li = newSet.renderExerciseCard();
-            const ul = newSet.renderExerciseInfo();
-            li.appendChild(ul);
-            containerCard.appendChild(li);
+            const toRender = this.populateSetfromInput(newSet, containerCard, newForm);
+            if (toRender === false){
+                console.log(newSet);
+                exerciseAPI.postSet(newSet);
+                newForm.remove();
+                const li = newSet.renderExerciseCard();
+                const ul = newSet.renderExerciseInfo();
+                li.appendChild(ul);
+                containerCard.appendChild(li);
+            }
         });
     }
 
-    populateSetfromInput(newSet, containerCard){
+    populateSetfromInput(newSet, containerCard, newForm){
         const nameInput = containerCard.querySelector('#name');
         const weightInput = containerCard.querySelector('#weight');
         const repsInput = containerCard.querySelector('#reps');
         const muscle_groupInput = containerCard.querySelector('#muscle_group');
+        let badInput = new Boolean(true);
 
         if(nameInput.value.length === 0){
             window.alert("Can't Create Empty Set");
+            newForm.remove();
+            return badInput;
         } else{
             newSet.name = nameInput.value;
             newSet.weight = weightInput.value;
             newSet.reps = repsInput.value;
             newSet.muscle_group = muscle_groupInput.value;
+            badInput = false;
+            return badInput;
         }
     }
 }

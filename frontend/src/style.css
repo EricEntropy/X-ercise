@@ -25,8 +25,15 @@ ul{
 button{
   color: blue;
   text-shadow: 1px 1px 1px rgba(28,110,164,0.5);  
-  border-bottom: 3px double #D64444;
+  border-bottom: 2px solid #D64444;
+  border-radius: 50px;
   margin: 2px;
+}
+button:hover{
+  background:rgba(28,110,164,0.5);
+}
+button:active{
+  background:rgb(255, 0, 0);
 }
 
 div.workout-card{
