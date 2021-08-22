@@ -22,7 +22,16 @@ class ExerciseServices{
     }
 
     postSet(newSet){
-        
+        const configuration = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json"
+            },
+            body: JSON.stringify(newSet)
+        };
+
+        fetch(this.rootURL, configuration)
     }
 
 }

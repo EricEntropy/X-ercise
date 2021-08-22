@@ -72,7 +72,7 @@ class Workout{
     };
 
     renderWorkoutSets(){
-        const workoutUl = document.createElement('p');
+        const workoutUl = document.createElement('div');
         workoutUl.classList.add('exercises');
 
         this.exercise_sets.forEach(set => {

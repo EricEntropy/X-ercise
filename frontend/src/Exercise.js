@@ -27,6 +27,7 @@ class Exercise{
 
     renderExerciseInfo(){
         const setData = document.createElement('div');
+        setData.classList.add('exercise-info')
         setData.innerHTML = `
         <p>Weight: ${this.weight}</p>
         <p>Repetitions: ${this.reps}</p>
@@ -44,8 +45,7 @@ class Exercise{
         label {
             width: 120px;
             display: inline-block;
-            text-align: right;
-        }
+            text-align: right;}
         </style>
         <b>New Set</b>
         <br>
@@ -77,7 +77,12 @@ class Exercise{
             console.log(this, "CREATE SET clicked");
             this.populateSetfromInput(newSet, containerCard)
             console.log(newSet);
+            exerciseAPI.postSet(newSet);
             newForm.remove();
+            const li = newSet.renderExerciseName();
+            const ul = newSet.renderExerciseInfo();
+            containerCard.appendChild(li);
+            containerCard.appendChild(ul);
         });
     }
 
@@ -95,7 +100,6 @@ class Exercise{
             newSet.reps = repsInput.value;
             newSet.muscle_group = muscle_groupInput.value;
         }
-
         return newSet;
     }
 }

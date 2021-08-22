@@ -22,24 +22,25 @@ class WorkoutServices{
             const workout = {
                 title: titleInput.value
             };
-            const configuration = {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json"
-                },
-                body: JSON.stringify(workout)
-            };
+            
+        const configuration = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json"
+            },
+            body: JSON.stringify(workout)
+        };
 
-            fetch(this.rootURL, configuration)
-            .then(resp => resp.json())
-            .then(workout => {
-                workout = new Workout(
-                    workout.id, workout.title, workout.exercise_sets)
-                workout.renderWorkout();
-                workoutForm.reset();
-            });
-            console.log(workout);
+        fetch(this.rootURL, configuration)
+        .then(resp => resp.json())
+        .then(workout => {
+            workout = new Workout(
+                workout.id, workout.title, workout.exercise_sets)
+            workout.renderWorkout();
+            workoutForm.reset();
+        });
+        console.log(workout);
     };
 
     deleteWorkout(id){
