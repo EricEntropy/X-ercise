@@ -39,6 +39,7 @@ class Workout{
                     e.preventDefault();
                     console.log(this, "NEW SET clicked");
                     const newSet = new Exercise();
+                    newSet.workout_id = this.id;
                     newSet.renderNewSet(newSet, containerCard);
                 });
             }

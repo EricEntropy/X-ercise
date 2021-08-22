@@ -71,9 +71,29 @@ class Exercise{
         const newForm = newSet.renderNewExerciseForm();
         containerCard.appendChild(newForm);
         const createBtn = newForm.querySelector('button')
+
         createBtn.addEventListener('click', (e) => {
             e.preventDefault();
             console.log(this, "CREATE SET clicked");
+            this.populateSetfromInput(newSet, containerCard)
+            console.log(newSet);
+            newForm.remove();
         });
+    }
+
+    populateSetfromInput(newSet, containerCard){
+        const nameInput = containerCard.querySelector('#name');
+        const weightInput = containerCard.querySelector('#weight');
+        const repsInput = containerCard.querySelector('#reps');
+        const muscle_groupInput = containerCard.querySelector('#muscle_group');
+
+        if(nameInput.length != 0){
+            newSet.name = nameInput.value;
+            newSet.weight = weightInput.value;
+            newSet.reps = repsInput.value;
+            newSet.muscle_group = muscle_groupInput.value;
+        }
+
+        return newSet;
     }
 }
