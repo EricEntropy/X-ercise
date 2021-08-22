@@ -87,7 +87,9 @@ class Exercise{
         const repsInput = containerCard.querySelector('#reps');
         const muscle_groupInput = containerCard.querySelector('#muscle_group');
 
-        if(nameInput.length != 0){
+        if(nameInput.value.length === 0){
+            window.alert("Can't Create Empty Set");
+        } else{
             newSet.name = nameInput.value;
             newSet.weight = weightInput.value;
             newSet.reps = repsInput.value;
