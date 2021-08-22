@@ -75,9 +75,10 @@ class Exercise{
 
     renderNewSet(newSet, containerCard){
         const newForm = newSet.renderNewExerciseForm();
-        containerCard.appendChild(newForm);
+        const exerciseCard = document.getElementById('exercise-card');
         const createBtn = newForm.querySelector('button')
 
+        containerCard.append(newForm);
         createBtn.addEventListener('click', (e) => {
             e.preventDefault();
             console.log(this, "CREATE SET clicked");
@@ -87,8 +88,8 @@ class Exercise{
             newForm.remove();
             const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();
+            li.appendChild(ul);
             containerCard.appendChild(li);
-            containerCard.appendChild(ul);
         });
     }
 
@@ -106,6 +107,5 @@ class Exercise{
             newSet.reps = repsInput.value;
             newSet.muscle_group = muscle_groupInput.value;
         }
-        return newSet;
     }
 }
