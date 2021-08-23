@@ -29,7 +29,8 @@ class WorkoutServices{
             muscle_group: muscle_groupInput.value
         };
 
-        if(workout.title.length === 0 || workout.muscle_group.length === 0 ){
+        if(workout.title.length === 0 || 
+            workout.muscle_group.length === 0 ) {
             window.alert("Can't Create Empty Workout");
             workoutForm.reset();
         } else {

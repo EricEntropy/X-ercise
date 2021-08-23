@@ -4,6 +4,7 @@ class CreateExerciseSets < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :weight
       t.integer :reps
+      t.integer :sets
       t.belongs_to :workout, foreign_key: true
       t.timestamps
     end

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_193803) do
     t.string "name"
     t.integer "weight"
     t.integer "reps"
+    t.integer "sets"
     t.integer "workout_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

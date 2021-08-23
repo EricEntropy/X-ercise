@@ -13,18 +13,21 @@ set_1 = ExerciseSet.create(
     name: "warm up pecs", 
     weight: 100, 
     reps: 10, 
+    sets: 5, 
 )
 
 set_2 = ExerciseSet.create(
     name: "warm up lats", 
     weight: 120, 
     reps: 10, 
+    sets: 5, 
 )
 
 set_3 = ExerciseSet.create(
     name: "warm up curls", 
     weight: 120, 
     reps: 10, 
+    sets: 5, 
 )
 
 workout1.exercise_sets << set_1

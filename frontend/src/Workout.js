@@ -85,6 +85,7 @@ class Workout{
                 set.name,
                 set.weight, 
                 set.reps,
+                set.sets,
                 set.workout_id);
             const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();
