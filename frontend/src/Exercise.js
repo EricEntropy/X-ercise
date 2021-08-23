@@ -68,6 +68,7 @@ class Exercise{
         <input type="text" name="muscle_group" id="muscle_group"/>
         <p>
             <button type="submit" id="create-set">Create Set</button>
+            <button type="submit" id="cancel">Cancel</button>
         </p>
         `;
         return newForm;
@@ -75,7 +76,8 @@ class Exercise{
 
     renderNewSet(newSet, containerCard){
         const newForm = newSet.renderNewExerciseForm();
-        const createBtn = newForm.querySelector('button')
+        const createBtn = newForm.querySelector('#create-set');
+        const cancelBtn = newForm.querySelector('#cancel');
 
         containerCard.append(newForm);
         createBtn.addEventListener('click', (e) => {
@@ -91,6 +93,12 @@ class Exercise{
                 li.appendChild(ul);
                 containerCard.appendChild(li);
             }
+        });
+
+        cancelBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(this, "CANCEL clicked");
+            newForm.remove();
         });
     }
 
