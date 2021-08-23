@@ -32,6 +32,10 @@ class ExerciseServices{
         };
 
         fetch(this.rootURL, configuration)
+        .then(resp => resp.json())
+        .then(exercise => {
+            newSet.id = exercise.id;
+        });
     }
 
     deleteSet(id){
