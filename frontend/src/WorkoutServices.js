@@ -24,32 +24,37 @@ class WorkoutServices{
         const titleInput = document.getElementsByName('title')[0];
         const muscle_groupInput = document.getElementsByName('muscle_group')[0];
 
-            const workout = {
-                title: titleInput.value,
-                muscle_group: muscle_groupInput.value
-            };
-
-        const configuration = {
-            method: 'POST', 
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json"
-            },
-            body: JSON.stringify(workout)
+        const workout = {
+            title: titleInput.value,
+            muscle_group: muscle_groupInput.value
         };
 
-        fetch(this.rootURL, configuration)
-        .then(resp => resp.json())
-        .then(workout => {
-            workout = new Workout(
-                workout.id,
-                workout.title,
-                workout.muscle_group,
-                workout.exercise_sets)
-            workout.renderWorkout();
+        if(workout.title.length === 0 || workout.muscle_group.length === 0 ){
+            window.alert("Can't Create Empty Workout");
             workoutForm.reset();
-        });
-        console.log(workout);
+        } else {
+            const configuration = {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json"
+                },
+                body: JSON.stringify(workout)
+            };
+
+            fetch(this.rootURL, configuration)
+            .then(resp => resp.json())
+            .then(workout => {
+                workout = new Workout(
+                    workout.id,
+                    workout.title,
+                    workout.muscle_group,
+                    workout.exercise_sets)
+                workout.renderWorkout();
+                workoutForm.reset();
+            });
+        }
+            console.log(workout);
     };
 
     deleteWorkout(id){
