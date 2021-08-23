@@ -17,10 +17,20 @@
         </div>
         <article class="newForm">
           <form id="workout-form">
+            <style>
+              label {
+                  width: 120px;
+                  display: inline-block;
+                  text-align: right;
+                }
+              </style>
             <b>Create New Workout</b>
             <br>
             <label for="workout-title">Title:</label>
             <input type="text" id="title" name="title"/>
+            <br>
+            <label for="muscle_group">Muscle Group:</label>
+            <input type="text" id="muscle_group" name="muscle_group"/>
             <p>
               <button type="submit">Create Workout</button>
             </p>

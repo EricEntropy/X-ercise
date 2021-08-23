@@ -10,7 +10,10 @@ class WorkoutServices{
             console.log(workouts)
             workouts.forEach(workout => {
                 const newWorkout = new Workout(
-                    workout.id, workout.title, workout.exercise_sets)
+                    workout.id,
+                    workout.title,
+                    workout.muscle_group,
+                    workout.exercise_sets)
                 newWorkout.renderWorkout();
             })
         });
@@ -19,8 +22,11 @@ class WorkoutServices{
     postWorkout(){
         const workoutForm = document.getElementById('workout-form');
         const titleInput = document.getElementsByName('title')[0];
+        const muscle_groupInput = document.getElementsByName('muscle_group')[0];
+
             const workout = {
-                title: titleInput.value
+                title: titleInput.value,
+                muscle_group: muscle_groupInput.value
             };
 
         const configuration = {
@@ -36,7 +42,10 @@ class WorkoutServices{
         .then(resp => resp.json())
         .then(workout => {
             workout = new Workout(
-                workout.id, workout.title, workout.exercise_sets)
+                workout.id,
+                workout.title,
+                workout.muscle_group,
+                workout.exercise_sets)
             workout.renderWorkout();
             workoutForm.reset();
         });

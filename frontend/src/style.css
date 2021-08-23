@@ -7,15 +7,11 @@ body {
     word-spacing: 2px;
     color: #000000;
     font-weight: 400;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
   }
 
 h1{
-      color: red;
-  }
+    color: red;
+}
 
 ul{
   margin: auto;
@@ -40,7 +36,7 @@ div.workout-card{
   margin: 25px;
   border: 2px outset #D64444;
   outline: 2px inset #D64444;
-    outline-offset: 1px;
+  outline-offset: 1px;
 }
 
 div.exercises{

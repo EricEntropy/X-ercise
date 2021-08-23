@@ -1,7 +1,8 @@
 class Workout{
-    constructor(id, title, exercise_sets){
+    constructor(id, title, muscle_group, exercise_sets){
         this.id = id; 
         this.title = title; 
+        this.muscle_group = muscle_group;
         this.exercise_sets = exercise_sets;
     }
 
@@ -63,6 +64,9 @@ class Workout{
     
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
+        Muscle Group: 
+        <u>${this.muscle_group}</u>
+        <br>
         `;
 
         workoutData.append(newExerciseButton);
@@ -81,7 +85,6 @@ class Workout{
                 set.name,
                 set.weight, 
                 set.reps,
-                set.muscle_group,
                 set.workout_id);
             const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();

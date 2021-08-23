@@ -14,7 +14,6 @@ class ExerciseServices{
                     exercise.name,
                     exercise.weight, 
                     exercise.reps,
-                    exercise.muscle_group,
                     exercise.workout_id)
                 newExercise.renderExerciseCard();
             })

@@ -1,10 +1,9 @@
 class Exercise{ 
-    constructor(id, name, weight, reps, muscle_group, workout_id){
+    constructor(id, name, weight, reps, workout_id){
         this.id = id;
         this.name = name;
         this.weight = weight; 
         this.reps = reps; 
-        this.muscle_group = muscle_group;
         this.workout_id = workout_id;
     }
 
@@ -37,7 +36,6 @@ class Exercise{
         setData.innerHTML = `
         <p>Weight: ${this.weight}</p>
         <p>Repetitions: ${this.reps}</p>
-        <p>Muscle Group: ${this.muscle_group}</p>
         `;
         return setData;
     };
@@ -63,9 +61,6 @@ class Exercise{
         <br>
         <label for="reps">Reps:</label>
         <input type="text" name="reps" id="reps"/>
-        <br>
-        <label for="muscle_group">Muscle Group:</label>
-        <input type="text" name="muscle_group" id="muscle_group"/>
         <p>
             <button type="submit" id="create-set">Create Set</button>
             <button type="submit" id="cancel">Cancel</button>
@@ -106,7 +101,6 @@ class Exercise{
         const nameInput = containerCard.querySelector('#name');
         const weightInput = containerCard.querySelector('#weight');
         const repsInput = containerCard.querySelector('#reps');
-        const muscle_groupInput = containerCard.querySelector('#muscle_group');
         let badInput = new Boolean(true);
 
         if(nameInput.value.length === 0){
@@ -117,7 +111,6 @@ class Exercise{
             newSet.name = nameInput.value;
             newSet.weight = weightInput.value;
             newSet.reps = repsInput.value;
-            newSet.muscle_group = muscle_groupInput.value;
             badInput = false;
             return badInput;
         }
