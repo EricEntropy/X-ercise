@@ -14,6 +14,7 @@ set_1 = ExerciseSet.create(
     weight: 100, 
     reps: 10, 
     sets: 5, 
+    muscle_group: "Pecs"
 )
 
 set_2 = ExerciseSet.create(
@@ -21,6 +22,7 @@ set_2 = ExerciseSet.create(
     weight: 120, 
     reps: 10, 
     sets: 5, 
+    muscle_group: "Lats"
 )
 
 set_3 = ExerciseSet.create(
@@ -28,6 +30,7 @@ set_3 = ExerciseSet.create(
     weight: 120, 
     reps: 10, 
     sets: 5, 
+    muscle_group: "bicep"
 )
 
 workout1.exercise_sets << set_1

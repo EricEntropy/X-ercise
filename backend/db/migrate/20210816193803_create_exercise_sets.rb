@@ -5,6 +5,8 @@ class CreateExerciseSets < ActiveRecord::Migration[6.1]
       t.integer :weight
       t.integer :reps
       t.integer :sets
+      t.string :muscle_group
+
       t.belongs_to :workout, foreign_key: true
       t.timestamps
     end

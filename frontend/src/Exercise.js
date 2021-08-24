@@ -5,6 +5,7 @@ class Exercise{
         this.weight = weight; 
         this.reps = reps; 
         this.sets = sets; 
+        this.muscle_group = muscle_group;
         this.workout_id = workout_id;
     }
 
@@ -81,7 +82,6 @@ class Exercise{
 
         containerCard.append(newForm);
         createBtn.addEventListener('click', (e) => {
-            e.preventDefault();
             console.log(this, "CREATE SET clicked");
             const toRender = this.populateSetfromInput(newSet, containerCard, newForm);
             if (toRender === false){
@@ -96,7 +96,6 @@ class Exercise{
         });
 
         cancelBtn.addEventListener('click', (e) => {
-            e.preventDefault();
             console.log(this, "CANCEL clicked");
             newForm.remove();
         });

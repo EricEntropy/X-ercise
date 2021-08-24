@@ -30,17 +30,16 @@ class Workout{
         buttons.forEach(button => {
             if(button.id === 'delete-btn'){
                 button.addEventListener('click', (e) => {
-                    e.preventDefault();
                     console.log(this, "DELETE clicked");
                     workoutAPI.deleteWorkout(this.id);
                     containerCard.remove();
                 })
             } else if(button.id === 'create-btn'){
                 button.addEventListener('click', (e) => {
-                    e.preventDefault();
                     console.log(this, "NEW SET clicked");
                     const newSet = new Exercise();
                     newSet.workout_id = this.id;
+                    newSet.muscle_group = this.muscle_group;
                     newSet.renderNewSet(newSet, containerCard);
                 });
             }
@@ -65,7 +64,7 @@ class Workout{
         workoutData.innerHTML = `
         <h1>${this.title}</h1>
         Muscle Group: 
-        <u>${this.muscle_group}</u>
+        <u id="muscle_group" value=${this.muscle_group}>${this.muscle_group}</u>
         <br>
         `;
 
@@ -86,6 +85,7 @@ class Workout{
                 set.weight, 
                 set.reps,
                 set.sets,
+                set.muscle_group,
                 set.workout_id);
             const li = newSet.renderExerciseCard();
             const ul = newSet.renderExerciseInfo();
