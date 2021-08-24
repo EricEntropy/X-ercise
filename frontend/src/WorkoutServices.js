@@ -16,6 +16,7 @@ class WorkoutServices{
                     workout.exercise_sets)
                 newWorkout.renderWorkout();
             })
+            renderSorting(workouts);
         });
     };
 

@@ -14,4 +14,19 @@ workoutForm.addEventListener('submit', (e)=> {
     workoutAPI.postWorkout();
 });
 
+function renderSorting(workouts){
+    const sortContainer = document.getElementById('sort');
+    const list = document.createElement('select');
+
+    workouts.forEach(workout => {
+        const muscle_group = document.createElement('option');
+        muscle_group.innerText = workout.muscle_group;
+        list.append(muscle_group);
+        return list
+    });  
+
+    sortContainer.append(list);
+};
+
+
 
