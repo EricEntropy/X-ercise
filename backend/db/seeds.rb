@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-workout1 = Workout.create(title: "Chest", muscle_group: "Pecs")
-workout2 = Workout.create(title: "Back", muscle_group: "Lats")
-workout3 = Workout.create(title: "Arms", muscle_group: "bicep")
+workout1 = Workout.create(title: "Chest", muscle_group: "Chest")
+workout2 = Workout.create(title: "Back", muscle_group: "Back")
+workout3 = Workout.create(title: "Arms", muscle_group: "Arms")
 
 set_1 = ExerciseSet.create(
     name: "warm up pecs", 
     weight: 100, 
     reps: 10, 
     sets: 5, 
-    muscle_group: "Pecs"
+    muscle_group: "Chest"
 )
 
 set_2 = ExerciseSet.create(
@@ -22,7 +22,7 @@ set_2 = ExerciseSet.create(
     weight: 120, 
     reps: 10, 
     sets: 5, 
-    muscle_group: "Lats"
+    muscle_group: "Back"
 )
 
 set_3 = ExerciseSet.create(
@@ -30,7 +30,7 @@ set_3 = ExerciseSet.create(
     weight: 120, 
     reps: 10, 
     sets: 5, 
-    muscle_group: "bicep"
+    muscle_group: "Arms"
 )
 
 workout1.exercise_sets << set_1

@@ -30,16 +30,32 @@
             <input type="text" id="title" name="title"/>
             <br>
             <label for="muscle_group">Muscle Group:</label>
-            <input type="text" id="muscle_group" name="muscle_group"/>
+            <select id='muscle_group'>
+              <option value="Abs">Abs</option>
+              <option value="Arms">Arms</option>
+              <option value="Back">Back</option>
+              <option value="Chest">Chest</option>
+              <option value="Legs">Legs</option>
+              </select>
             <p>
               <button type="submit">Create Workout</button>
             </p>
           </form>
         </article>
 
-        <article class="sort" name="sort" id="sort">
-          <label for="sort"> Muscle Group</label>
+        <br>
+        <article id="sort-container">
+          <style>
+            label {
+                width: 200px;
+                display: inline-block;
+                text-align: right;
+              }
+            </style>
+          <label for="sort"> <b>Muscle Group Filter</b></label>
+          <br>
         </article>
+        <br>
 
         <article id="workout-container">
             <h1>Workouts</h1>

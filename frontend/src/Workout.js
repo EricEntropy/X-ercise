@@ -7,6 +7,8 @@ class Workout{
     }
 
     renderWorkout(){
+        const sortBtn = document.getElementById('sort-btn');
+        const muscleToSort = document.querySelector('#sort');
         const workoutList = document.getElementById("workout-list");
         const workoutCard = document.createElement('div');
 
@@ -15,11 +17,19 @@ class Workout{
 
         const workoutInfo = this.renderWorkoutCard();
         const sets = this.renderWorkoutSets();
-
+        workoutInfo.appendChild(sets);
         workoutCard.appendChild(workoutInfo);
-        workoutCard.appendChild(sets);
-        workoutList.appendChild(workoutCard);
-        this.renderButtonClick();
+
+        sortBtn.addEventListener('click', (e) =>{
+            workoutCard.remove();
+            if(this.muscle_group === muscleToSort.value){
+                workoutList.appendChild(workoutCard);
+                this.renderButtonClick();
+            }
+            
+        });
+
+        
     };
 
     renderButtonClick(){

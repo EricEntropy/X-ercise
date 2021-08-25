@@ -35,7 +35,7 @@ class ExerciseServices{
         .then(resp => resp.json())
         .then(exercise => {
             newSet.id = exercise.id;
-            //newSet.muscle_group = exercise.muscle_group;
+            newSet.muscle_group = exercise.muscle_group;
         });
     }
 

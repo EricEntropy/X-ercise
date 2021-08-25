@@ -8,6 +8,7 @@ class WorkoutServices{
         .then(resp => resp.json())
         .then(workouts => {
             console.log(workouts)
+            renderSorting(workouts);
             workouts.forEach(workout => {
                 const newWorkout = new Workout(
                     workout.id,
@@ -16,22 +17,20 @@ class WorkoutServices{
                     workout.exercise_sets)
                 newWorkout.renderWorkout();
             })
-            renderSorting(workouts);
         });
     };
 
     postWorkout(){
         const workoutForm = document.getElementById('workout-form');
         const titleInput = document.getElementsByName('title')[0];
-        const muscle_groupInput = document.getElementsByName('muscle_group')[0];
+        const muscle_groupInput = document.getElementById('muscle_group');
 
         const workout = {
             title: titleInput.value,
             muscle_group: muscle_groupInput.value
         };
 
-        if(workout.title.length === 0 || 
-            workout.muscle_group.length === 0 ) {
+        if(workout.title.length === 0) {
             window.alert("Can't Create Empty Workout");
             workoutForm.reset();
         } else {

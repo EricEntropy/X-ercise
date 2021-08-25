@@ -118,6 +118,7 @@ class Exercise{
             newSet.weight = weightInput.value;
             newSet.reps = repsInput.value;
             newSet.sets = setsInput.value;
+            newSet.muscle_group = muscle_group.value;
             badInput = false;
             return badInput;
         }
