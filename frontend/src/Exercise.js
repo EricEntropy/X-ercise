@@ -44,6 +44,7 @@ class Exercise{
     };
 
     renderNewExerciseForm(){
+
         const newForm = document.createElement('div');
         newForm.classList.add('edit-form');
 
@@ -73,6 +74,7 @@ class Exercise{
         </p>
         `;
         return newForm;
+        
     };
 
     renderNewSet(newSet, containerCard){
@@ -80,7 +82,9 @@ class Exercise{
         const createBtn = newForm.querySelector('#create-set');
         const cancelBtn = newForm.querySelector('#cancel');
 
-        containerCard.append(newForm);
+        if(!(document.querySelector('.edit-form'))){
+            containerCard.append(newForm);
+        }
         createBtn.addEventListener('click', (e) => {
             console.log(this, "CREATE SET clicked");
             const toRender = this.populateSetfromInput(newSet, containerCard, newForm);

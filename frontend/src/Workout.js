@@ -26,7 +26,6 @@ class Workout{
                 workoutList.appendChild(workoutCard);
                 this.renderButtonClick();
             }
-            
         });
 
         
