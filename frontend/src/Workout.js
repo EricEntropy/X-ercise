@@ -27,8 +27,6 @@ class Workout{
                 this.renderButtonClick();
             }
         });
-
-        
     };
 
     renderButtonClick(){

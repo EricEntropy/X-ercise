@@ -8,6 +8,9 @@
 workout1 = Workout.create(title: "Chest", muscle_group: "Chest")
 workout2 = Workout.create(title: "Back", muscle_group: "Back")
 workout3 = Workout.create(title: "Arms", muscle_group: "Arms")
+workout4 = Workout.create(title: "Abs", muscle_group: "Abs")
+workout5 = Workout.create(title: "Legs", muscle_group: "Legs")
+
 
 set_1 = ExerciseSet.create(
     name: "warm up pecs", 
@@ -33,9 +36,28 @@ set_3 = ExerciseSet.create(
     muscle_group: "Arms"
 )
 
+set_4 = ExerciseSet.create(
+    name: "warm up abs", 
+    weight: 10, 
+    reps: 30, 
+    sets: 5, 
+    muscle_group: "Abs"
+)
+
+set_5 = ExerciseSet.create(
+    name: "warm up legs", 
+    weight: 155, 
+    reps: 10, 
+    sets: 5, 
+    muscle_group: "Legs"
+)
+
 workout1.exercise_sets << set_1
 workout2.exercise_sets << set_2
 workout3.exercise_sets << set_3
+workout4.exercise_sets << set_4
+workout5.exercise_sets << set_5
+
 
 
 

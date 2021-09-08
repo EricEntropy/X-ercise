@@ -36,7 +36,7 @@ class Exercise{
         const setData = document.createElement('div');
         setData.classList.add('exercise-info')
         setData.innerHTML = `
-        <p>Weight: ${this.weight}</p>
+        <p>Weight(lbs): ${this.weight}</p>
         <p>Repetitions: ${this.reps}</p>
         <p>Target # Sets: ${this.sets}</p>
         `;
@@ -60,7 +60,7 @@ class Exercise{
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"/>
         <br>
-        <label for="weight">Weight:</label>
+        <label for="weight">Weight(lbs):</label>
         <input type="text" name="weight" id="weight"/>
         <br>
         <label for="reps">Reps:</label>
@@ -98,12 +98,13 @@ class Exercise{
                 containerCard.appendChild(li);
             }
         });
-
         cancelBtn.addEventListener('click', (e) => {
             console.log(this, "CANCEL clicked");
             newForm.remove();
         });
     }
+
+
 
     populateSetfromInput(newSet, containerCard, newForm){
         const nameInput = containerCard.querySelector('#name');

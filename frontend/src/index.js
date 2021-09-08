@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 workoutForm.addEventListener('submit', (e)=> {
-    e.preventDefault();
+    e.preventDefault(); 
     workoutAPI.postWorkout();
 });
 
@@ -30,9 +30,11 @@ function renderSorting(workouts){
         list.append(muscle_group);
         return list
     });  
+
     sortContainer.append(list);
     sortContainer.append(checkWorkouts);
 };
+
 
 
 
