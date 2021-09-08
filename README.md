@@ -12,6 +12,7 @@ With this app you can keep track of your workouts!
 3. Once in the backend folder, run bundle install to install all gems needed
 4. run rails db:migrate to run migration files
 5. run rails db:reset to start off the app with some seed data and create database
+6. after database has been successfully created, run rails s to launch the rails server
 
 ## Usage 
 
